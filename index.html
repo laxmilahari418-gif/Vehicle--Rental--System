@@ -103,7 +103,6 @@
 
         <!-- Vehicle Cards -->
         <div class="vehicle-grid">
-
             <!-- Hyundai -->
             <article class="vehicle-card" data-type="car">
 
@@ -222,84 +221,182 @@
                     </div>
                 </div>
             </article>
+            <!-- Maruti Suzuki -->
+             <article class="vehicle-card" data-type="car">
+                <img
+                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80"
+                alt="Car available for rental">
+                <div class="vehicle-info">
+                    <span class="vehicle-type">CAR</span>
+                    <h3>Maruti Suzuki</h3>
+                    <p class="vehicle-description">
+                        A practical choice for everyday journeys.
+                    </p>
+                    <div class="vehicle-bottom">
+                        <p class="price">₹1,200 <span>/ day</span></p>
+                        <button class="book-button"
+                        data-name="Maruti Suzuki" data-price="1200">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </article>
+        <!-- Tata -->
+         <article class="vehicle-card" data-type="car">
+            <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+            alt="Car available for rental">
+            <div class="vehicle-info">
+                <span class="vehicle-type">CAR</span>
+                <h3>Tata</h3>
+                <p class="vehicle-description">
+                    A comfortable option for your next trip.
+                </p>
+                <div class="vehicle-bottom">
+                    <p class="price">₹1,400 <span>/ day</span></p>
+                    <button class="book-button"
+                    data-name="Tata" data-price="1400">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </article>
+    <!-- Yamaha -->
+     <article class="vehicle-card" data-type="bike">
+        <img
+        src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80"
+        alt="Motorcycle available for rental">
+        <div class="vehicle-info">
+            <span class="vehicle-type">BIKE</span>
+            <h3>Yamaha</h3>
+            <p class="vehicle-description">
+                Enjoy convenient two-wheel travel.
+            </p>
+            <div class="vehicle-bottom">
+                <p class="price">₹600 <span>/ day</span></p>
+                <button class="book-button"
+                data-name="Yamaha" data-price="600">
+                Book Now
+            </button>
+        </div>
+    </div>
+</article>
+
+<!-- KTM -->
+ <article class="vehicle-card" data-type="bike">
+    <img
+    src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80"
+    alt="Sport motorcycle available for rental">
+    <div class="vehicle-info">
+        <span class="vehicle-type">BIKE</span>
+        <h3>KTM</h3>
+        <p class="vehicle-description">
+            A sporty option for your next ride.
+        </p>
+        <div class="vehicle-bottom">
+            <p class="price">₹700 <span>/ day</span></p>
+            <button class="book-button"
+            data-name="KTM" data-price="700">
+            Book Now
+        </button>
+    </div>
+</article>
+</div>
+</section>
+<!-- About Section -->
+ <section class="about-section" id="about">
+    <p class="tagline">WHY DRIVE EASE?</p>
+    <h2>Your Journey Starts Here</h2>
+    <p>
+        Our Vehicle Rental System helps customers explore
+        different vehicles and estimate rental costs easily.
+        Choose your ride and plan your next journey with confidence.
+    </p>
+</section>
+<!-- Booking Dialog -->
+ <dialog id="booking-dialog">
+
+    <form id="booking-form">
+
+        <h2>Book Your Ride</h2>
+
+        <p id="selected-vehicle"></p>
+
+        <label for="customer-name">Customer Name</label>
+        <input
+            type="text"
+            id="customer-name"
+            placeholder="Enter your full name"
+            required
+            maxlength="80">
+
+        <label for="customer-phone">Phone Number</label>
+        <input
+            type="tel"
+            id="customer-phone"
+            placeholder="Enter your phone number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            inputmode="numeric"
+            required>
+
+        <label for="customer-email">Email Address</label>
+        <input
+            type="email"
+            id="customer-email"
+            placeholder="Enter your email"
+            required
+            maxlength="120">
+
+        <label for="rental-date">Rental Start Date</label>
+        <input
+            type="date"
+            id="rental-date"
+            required>
+
+        <label for="rental-days">Number of Rental Days</label>
+        <input
+            type="number"
+            id="rental-days"
+            min="1"
+            max="30"
+            value="1"
+            required>
+
+        <p class="total-price">
+            Estimated Total: ₹<span id="total-cost">0</span>
+        </p>
+
+        <div class="dialog-buttons">
+
+            <button type="submit" class="book-button">
+                Confirm Demo Booking
+            </button>
+
+            <button
+                type="button"
+                id="close-dialog"
+                class="cancel-button">
+                Cancel
+            </button>
 
         </div>
 
-    </section>
-
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-
-        <p class="tagline">WHY DRIVE EASE?</p>
-
-        <h2>Your Journey Starts Here</h2>
-
-        <p>
-            Our Vehicle Rental System helps customers explore
-            different vehicles and estimate rental costs easily.
-            Choose your ride and plan your next journey with confidence.
+        <p class="demo-note">
+            Demonstration only. No actual reservation or payment is made.
         </p>
 
-    </section>
+    </form>
 
-
-    <!-- Booking Dialog -->
-    <dialog id="booking-dialog">
-
-        <form id="booking-form">
-
-            <h2>Book Your Ride</h2>
-
-            <p id="selected-vehicle"></p>
-
-            <label for="rental-days">Number of rental days</label>
-
-            <input
-                type="number"
-                id="rental-days"
-                min="1"
-                max="30"
-                value="1"
-                required>
-
-            <p class="total-price">
-                Estimated Total: ₹<span id="total-cost">0</span>
-            </p>
-
-            <div class="dialog-buttons">
-                <button type="submit" class="book-button">
-                    Confirm Demo Booking
-                </button>
-
-                <button type="button" id="close-dialog"
-                    class="cancel-button">
-                    Cancel
-                </button>
-            </div>
-
-            <p class="demo-note">
-                Demo only. No actual reservation or payment is made.
-            </p>
-
-        </form>
-
-    </dialog>
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="logo">Drive<span>Ease.</span></div>
-
-        <p>Making every journey easier.</p>
-
-        <p class="copyright">
-            © 2026 DriveEase Vehicle Rental System
-        </p>
-    </footer>
-
-
-    <script src="script.js"></script>
-
+</dialog>
+<!-- Footer -->
+ <footer>
+    <div class="logo">Drive<span>Ease.</span></div>
+    <p>Making every journey easier.</p>
+    <p class="copyright">
+        © 2026 DriveEase Vehicle Rental System
+    </p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

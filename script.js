@@ -1,11 +1,10 @@
-// Filter vehicles by category
+// Filter vehicles
 
 const filterButtons = document.querySelectorAll(".filter-button");
 const vehicleCards = document.querySelectorAll(".vehicle-card");
 
 filterButtons.forEach(button => {
     button.addEventListener("click", () => {
-
         const selectedFilter = button.dataset.filter;
 
         filterButtons.forEach(item => {
@@ -15,29 +14,27 @@ filterButtons.forEach(button => {
         button.classList.add("active");
 
         vehicleCards.forEach(card => {
+            const matches =
+                selectedFilter === "all" ||
+                card.dataset.type === selectedFilter;
 
-            const vehicleType = card.dataset.type;
-
-            if (selectedFilter === "all" ||
-                selectedFilter === vehicleType) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
+            card.style.display = matches ? "" : "none";
         });
     });
 });
 
 
-// Booking dialog
+// Booking form
 
 const bookingDialog = document.getElementById("booking-dialog");
 const bookingForm = document.getElementById("booking-form");
 const selectedVehicle = document.getElementById("selected-vehicle");
+
+const customerName = document.getElementById("customer-name");
+const customerPhone = document.getElementById("customer-phone");
+const customerEmail = document.getElementById("customer-email");
+
+const rentalDate = document.getElementById("rental-date");
 const rentalDays = document.getElementById("rental-days");
 const totalCost = document.getElementById("total-cost");
 
@@ -45,84 +42,91 @@ let currentVehicle = "";
 let currentPrice = 0;
 
 
+// Set today's date as the earliest rental date
+
+const today = new Date();
+const localToday = new Date(
+    today.getTime() - today.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
+
+rentalDate.min = localToday;
+rentalDate.value = localToday;
+
+
 // Open booking dialog
 
 document.querySelectorAll(".book-button[data-name]").forEach(button => {
-
     button.addEventListener("click", () => {
-
         currentVehicle = button.dataset.name;
         currentPrice = Number(button.dataset.price);
 
         selectedVehicle.textContent =
-            currentVehicle + " — ₹" + currentPrice + " per day";
+            currentVehicle + " — ₹" +
+            currentPrice.toLocaleString("en-IN") + " per day";
 
         rentalDays.value = 1;
-        totalCost.textContent = currentPrice.toLocaleString("en-IN");
+        totalCost.textContent =
+            currentPrice.toLocaleString("en-IN");
 
         bookingDialog.showModal();
-
     });
-
 });
 
 
-// Calculate rental price
+// Calculate rental cost
 
-rentalDays.addEventListener("input", () => {
-
+function updateTotal() {
     const days = Number(rentalDays.value);
 
-    if (days >= 1 && days <= 30) {
-
-        const total = currentPrice * days;
-
-        totalCost.textContent = total.toLocaleString("en-IN");
-
+    if (Number.isInteger(days) && days >= 1 && days <= 30) {
+        totalCost.textContent =
+            (currentPrice * days).toLocaleString("en-IN");
     } else {
-
         totalCost.textContent = "—";
-
     }
+}
 
-});
+rentalDays.addEventListener("input", updateTotal);
 
 
-// Close booking dialog
+// Close dialog
 
 document.getElementById("close-dialog").addEventListener("click", () => {
-
     bookingDialog.close();
-
 });
 
 
-// Demo booking confirmation
+// Confirm demo booking
 
 bookingForm.addEventListener("submit", event => {
-
     event.preventDefault();
 
     const days = Number(rentalDays.value);
+    const date = rentalDate.value;
 
     if (!Number.isInteger(days) || days < 1 || days > 30) {
-
-        alert("Please enter a rental duration from 1 to 30 days.");
-
+        alert("Please select between 1 and 30 rental days.");
         return;
+    }
 
+    if (!date || date < localToday) {
+        alert("Please select today or a future rental date.");
+        return;
     }
 
     const total = currentPrice * days;
 
     alert(
         "Demo Booking Successful!\n\n" +
+        "Customer: " + customerName.value.trim() + "\n" +
+        "Phone: " + customerPhone.value + "\n" +
+        "Email: " + customerEmail.value.trim() + "\n" +
         "Vehicle: " + currentVehicle + "\n" +
+        "Start Date: " + date + "\n" +
         "Rental Days: " + days + "\n" +
         "Estimated Total: ₹" + total.toLocaleString("en-IN") +
-        "\n\nThis is a demonstration only. No actual reservation was made."
+        "\n\nThis is a demonstration. No real reservation was created."
     );
 
     bookingDialog.close();
-
 });

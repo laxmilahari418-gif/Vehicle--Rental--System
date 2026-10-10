@@ -433,3 +433,31 @@ footer .copyright {
         font-size: 40px;
     }
 }
+#booking-form label {
+    display: block;
+    font-weight: 700;
+    margin: 15px 0 6px;
+}
+
+#booking-form input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+#booking-form input:focus {
+    outline: 2px solid #f47735;
+    border-color: #f47735;
+}
+
+#booking-form h2 {
+    margin-bottom: 15px;
+}
+
+#booking-form .total-price {
+    margin-top: 20px;
+}
