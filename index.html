@@ -1,44 +1,305 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Rental System</title>
+
+    <title>DriveEase | Vehicle Rental</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>Vehicle Rental System</h1>
-        <p>Your journey starts here!</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Drive<span>Ease.</span></div>
 
-    <main>
-        <h2>Welcome to Our Vehicle Rental System</h2>
-        <p>Find the right vehicle for your next journey.</p>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#vehicles">Our Vehicles</a>
+            <a href="#about">About</a>
+        </div>
 
-        <section class="vehicles">
-            <div class="card">
-                <h3>🚗 Cars</h3>
-                <p>Explore our available cars for rent.</p>
+        <a href="#vehicles" class="nav-button">Explore Vehicles</a>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="tagline">YOUR JOURNEY, YOUR RULES</p>
+
+            <h1>Find Your Perfect<br>
+                <span>Ride Today.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover your next ride with our collection of cars
+                and bikes. Simple, convenient, and affordable rentals
+                for every journey.
+            </p>
+
+            <a href="#vehicles" class="primary-button">
+                Explore Vehicles →
+            </a>
+
+            <div class="stats">
+                <div>
+                    <h3>Cars</h3>
+                    <p>Comfortable rides</p>
+                </div>
+
+                <div>
+                    <h3>Bikes</h3>
+                    <p>Exciting journeys</p>
+                </div>
+
+                <div>
+                    <h3>Easy</h3>
+                    <p>Simple booking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
+                alt="Modern car available for rental">
+        </div>
+
+    </section>
+
+
+    <!-- Vehicles Section -->
+    <section class="vehicles-section" id="vehicles">
+
+        <div class="section-heading">
+            <p class="tagline">CHOOSE YOUR RIDE</p>
+
+            <h2>Explore Our Vehicles</h2>
+
+            <p>
+                Find the right vehicle for your next adventure.
+            </p>
+        </div>
+
+        <!-- Vehicle Filter -->
+        <div class="filters">
+            <button class="filter-button active" data-filter="all">
+                All Vehicles
+            </button>
+
+            <button class="filter-button" data-filter="car">
+                Cars
+            </button>
+
+            <button class="filter-button" data-filter="bike">
+                Bikes
+            </button>
+        </div>
+
+
+        <!-- Vehicle Cards -->
+        <div class="vehicle-grid">
+
+            <!-- Hyundai -->
+            <article class="vehicle-card" data-type="car">
+
+                <img
+                    src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
+                    alt="Red car">
+
+                <div class="vehicle-info">
+                    <span class="vehicle-type">CAR</span>
+
+                    <h3>Hyundai</h3>
+
+                    <p class="vehicle-description">
+                        Comfortable and practical for everyday travel.
+                    </p>
+
+                    <div class="vehicle-bottom">
+                        <p class="price">
+                            ₹1,500 <span>/ day</span>
+                        </p>
+
+                        <button class="book-button"
+                            data-name="Hyundai" data-price="1500">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Toyota -->
+            <article class="vehicle-card" data-type="car">
+
+                <img
+                    src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80"
+                    alt="Modern Toyota-style car">
+
+                <div class="vehicle-info">
+                    <span class="vehicle-type">CAR</span>
+
+                    <h3>Toyota</h3>
+
+                    <p class="vehicle-description">
+                        Enjoy a smooth and comfortable road trip.
+                    </p>
+
+                    <div class="vehicle-bottom">
+                        <p class="price">
+                            ₹2,000 <span>/ day</span>
+                        </p>
+
+                        <button class="book-button"
+                            data-name="Toyota" data-price="2000">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Honda -->
+            <article class="vehicle-card" data-type="bike">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80"
+                    alt="Motorcycle">
+
+                <div class="vehicle-info">
+                    <span class="vehicle-type">BIKE</span>
+
+                    <h3>Honda</h3>
+
+                    <p class="vehicle-description">
+                        A convenient companion for city adventures.
+                    </p>
+
+                    <div class="vehicle-bottom">
+                        <p class="price">
+                            ₹500 <span>/ day</span>
+                        </p>
+
+                        <button class="book-button"
+                            data-name="Honda" data-price="500">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Royal Enfield -->
+            <article class="vehicle-card" data-type="bike">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic-style motorcycle">
+
+                <div class="vehicle-info">
+                    <span class="vehicle-type">BIKE</span>
+
+                    <h3>Royal Enfield</h3>
+
+                    <p class="vehicle-description">
+                        Make your long rides more memorable.
+                    </p>
+
+                    <div class="vehicle-bottom">
+                        <p class="price">
+                            ₹800 <span>/ day</span>
+                        </p>
+
+                        <button class="book-button"
+                            data-name="Royal Enfield" data-price="800">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <p class="tagline">WHY DRIVE EASE?</p>
+
+        <h2>Your Journey Starts Here</h2>
+
+        <p>
+            Our Vehicle Rental System helps customers explore
+            different vehicles and estimate rental costs easily.
+            Choose your ride and plan your next journey with confidence.
+        </p>
+
+    </section>
+
+
+    <!-- Booking Dialog -->
+    <dialog id="booking-dialog">
+
+        <form id="booking-form">
+
+            <h2>Book Your Ride</h2>
+
+            <p id="selected-vehicle"></p>
+
+            <label for="rental-days">Number of rental days</label>
+
+            <input
+                type="number"
+                id="rental-days"
+                min="1"
+                max="30"
+                value="1"
+                required>
+
+            <p class="total-price">
+                Estimated Total: ₹<span id="total-cost">0</span>
+            </p>
+
+            <div class="dialog-buttons">
+                <button type="submit" class="book-button">
+                    Confirm Demo Booking
+                </button>
+
+                <button type="button" id="close-dialog"
+                    class="cancel-button">
+                    Cancel
+                </button>
             </div>
 
-            <div class="card">
-                <h3>🏍️ Bikes</h3>
-                <p>Explore our available bikes for rent.</p>
-            </div>
-        </section>
+            <p class="demo-note">
+                Demo only. No actual reservation or payment is made.
+            </p>
 
-        <button onclick="showMessage()">Explore Vehicles</button>
-        <p id="message"></p>
-    </main>
+        </form>
 
+    </dialog>
+
+
+    <!-- Footer -->
     <footer>
-        <p>© 2026 Vehicle Rental System</p>
+        <div class="logo">Drive<span>Ease.</span></div>
+
+        <p>Making every journey easier.</p>
+
+        <p class="copyright">
+            © 2026 DriveEase Vehicle Rental System
+        </p>
     </footer>
 
+
     <script src="script.js"></script>
+
 </body>
 </html>
-```
